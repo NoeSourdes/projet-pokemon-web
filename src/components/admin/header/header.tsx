@@ -67,23 +67,23 @@ export const Header = () => {
           </Button>
         </Link>
       </div>
-      <div className="flex justify-center items-center gap-5 max-lg:gap-2">
-        <Link href="#" className="hidden lg:block">
+      <div className="flex justify-center items-center gap-5 max-xl:gap-2">
+        <Link href="#" className="hidden xl:block">
           <Button variant="outline">Magasin</Button>
         </Link>
         {loading ? (
           <>
-            <Skeleton className="w-[78px] h-[40px] rounded-[7px] hidden lg:block" />
-            <Skeleton className="w-[132px] h-[35px] rounded-full hidden lg:block" />
+            <Skeleton className="w-[78px] h-[40px] rounded-[7px] hidden xl:block" />
+            <Skeleton className="w-[132px] h-[35px] rounded-full hidden xl:block" />
           </>
         ) : (
           <>
             {data && (
               <>
-                <Button className="hidden lg:block">
+                <Button className="hidden xl:block">
                   Level {data.user.level}
                 </Button>
-                <div className="items-center py-2 px-3 bg-secondary rounded-full gap-2 hidden lg:flex">
+                <div className="items-center py-2 px-3 bg-secondary rounded-full gap-2 hidden xl:flex">
                   <Progress
                     value={data.user.progress}
                     className="w-[70px] h-2 bg-black"
@@ -108,26 +108,28 @@ export const Header = () => {
             )}
           </>
         )}
-        <Popover>
-          <PopoverTrigger>
-            <Avatar>
-              <AvatarImage src={session?.user.image || undefined} />
-              <AvatarFallback>
-                <Skeleton className="w-[35px] h-[35px] rounded-full" />
-              </AvatarFallback>
-            </Avatar>
-          </PopoverTrigger>
-          <PopoverContent className="w-[160px] mt-2 mr-10">
-            <Button
-              className="w-full"
-              onClick={() => signOut({ callbackUrl: "/" })}
-            >
-              Déconnexion
-            </Button>
-          </PopoverContent>
-        </Popover>
-        <div className="lg:hidden block">
-          <ComponentSheet loading={loading} data={data} />
+        <div className="lg:block hidden">
+          <Popover>
+            <PopoverTrigger>
+              <Avatar>
+                <AvatarImage src={session?.user.image || undefined} />
+                <AvatarFallback>
+                  <Skeleton className="w-[35px] h-[35px] rounded-full" />
+                </AvatarFallback>
+              </Avatar>
+            </PopoverTrigger>
+            <PopoverContent className="w-[160px] mt-2 mr-10">
+              <Button
+                className="w-full"
+                onClick={() => signOut({ callbackUrl: "/" })}
+              >
+                Déconnexion
+              </Button>
+            </PopoverContent>
+          </Popover>
+        </div>
+        <div className="xl:hidden block">
+          <ComponentSheet loading={loading} data={data} session={session} />
         </div>
       </div>
     </div>
