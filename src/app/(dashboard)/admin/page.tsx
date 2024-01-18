@@ -13,9 +13,5 @@ export default function Admin() {
   if (session?.user?.createNow === false) {
     router.push("/onboarding");
   }
-  return (
-    <main>
-      <Header />
-    </main>
-  );
+  return <main></main>;
 }
