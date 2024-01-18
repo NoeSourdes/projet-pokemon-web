@@ -50,7 +50,7 @@ export const ComponentSheet = ({ loading, data, session }: Props) => {
                           <div className="flex items-center py-2 px-3 bg-secondary rounded-full gap-2">
                             <Progress
                               value={data.user.progress}
-                              className="w-[70px] max-sm:w-[50px] h-2 bg-black"
+                              className="w-[70px] max-sm:w-[40px] h-2 bg-black"
                             />
                             <p className="text-sm">{data.user.progress} %</p>
                           </div>
