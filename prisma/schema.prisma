@@ -56,6 +56,15 @@ model User {
   @@map("users")
 }
 
+model Profil {
+  idUser String @id @map("id_user")
+  personnageName String @map("personnage_name")
+  money Int @default(100)
+  level Int @default(1)
+  progress Int @default(10)
+  pokedex String[] @default([])
+}
+
 model UserSession {
   id           String   @id @default(cuid())
   userId       String   @map("user_id")

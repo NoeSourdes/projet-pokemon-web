@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -20,6 +19,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
+import { toast } from "sonner";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 const personnages = [
   {
@@ -36,12 +38,64 @@ const personnages = [
 
 interface PersonnageProps {
   setPersonnageName: React.Dispatch<React.SetStateAction<string | null>>;
+  pokemonName: string | null;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function Step2({ setStep, setPersonnageName }: PersonnageProps) {
-  const handlePersonnage = (personnage: string) => {
+export default function Step2({
+  setStep,
+  setPersonnageName,
+  pokemonName,
+}: PersonnageProps) {
+  const { data: session, update } = useSession();
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const handleUpadteProfile = async (personage: string) => {
+    const url = `api/user/update-profile-onboarding`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        personnage: personage,
+        pokemon: pokemonName,
+        id: session?.user?.id,
+      }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      toast.success(data.message);
+    } else {
+      toast.error(data.message);
+    }
+  };
+
+  const handleStatus = async () => {
+    const url = `api/user/update-status`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: session?.user?.id,
+      }),
+    });
+    if (response.ok) {
+      await update({
+        createNow: true,
+      });
+    } else {
+      toast.error("Une erreur est survenue");
+    }
+  };
+
+  const handlePersonnage = async (personnage: string) => {
+    setLoading(true);
     setPersonnageName(personnage);
+    await handleUpadteProfile(personnage);
+    await handleStatus();
+    setLoading(false);
     setStep(2);
   };
 
@@ -87,7 +141,12 @@ export default function Step2({ setStep, setPersonnageName }: PersonnageProps) {
               <div>
                 <AlertDialog>
                   <AlertDialogTrigger className="w-full">
-                    <Button className="w-full">Choisir ce personnages</Button>
+                    <Button disabled={loading} className="w-full">
+                      {loading && (
+                        <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                      )}
+                      Choisir ce personnages
+                    </Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
@@ -104,7 +163,7 @@ export default function Step2({ setStep, setPersonnageName }: PersonnageProps) {
                       <AlertDialogAction
                         onClick={() => handlePersonnage(personnage.name)}
                       >
-                        Oui
+                        Terminer
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>

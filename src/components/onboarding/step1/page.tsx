@@ -30,6 +30,7 @@ interface Step1Props {
 const pokemons = [
   {
     name: "Bulbizarre",
+    name_en: "Bulbasaur",
     type: "Plante",
     img: "/img/bulbizarre.png",
     hp: 45,
@@ -41,6 +42,7 @@ const pokemons = [
   },
   {
     name: "Salamèche",
+    name_en: "Charmander",
     type: "Feu",
     img: "/img/salamèche.png",
     hp: 39,
@@ -52,6 +54,7 @@ const pokemons = [
   },
   {
     name: "Carapuce",
+    name_en: "Squirtle",
     type: "Eau",
     img: "/img/carapuce.png",
     hp: 44,
@@ -161,7 +164,7 @@ export const Step1: React.FC<Step1Props & CardProps> = ({
                   <AlertDialogFooter>
                     <AlertDialogCancel>Non</AlertDialogCancel>
                     <AlertDialogAction
-                      onClick={() => handleClick(pokemon.name)}
+                      onClick={() => handleClick(pokemon.name_en)}
                     >
                       Oui
                     </AlertDialogAction>
