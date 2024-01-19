@@ -32,7 +32,8 @@ export const CardPokemon = ({ data, loading }: Props) => {
       <span className="font-bold text-primary">{value}</span>
     </div>
   );
-  const flexContainerStyles = "flex justify-between items-center gap-3";
+  const flexContainerStyles =
+    "flex justify-between items-center gap-3 max-sm:text-sm";
   const [dataPokemon, setDataPokemon] = React.useState<any>();
   const [pokedex, setPokedex] = React.useState<any>();
   const pokemonName = data?.user.pokedex[0];
