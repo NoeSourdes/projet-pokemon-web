@@ -25,10 +25,8 @@ interface Props {
 export const ComponentSheet = ({ loading, data, session }: Props) => {
   return (
     <Sheet>
-      <SheetTrigger>
-        <Button>
-          <RiMenu4Fill />
-        </Button>
+      <SheetTrigger className="bg-primary flex justify-center items-center px-3 py-2 rounded-[7px]">
+        <RiMenu4Fill className="w-6 h-6 text-black" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader className="h-full">

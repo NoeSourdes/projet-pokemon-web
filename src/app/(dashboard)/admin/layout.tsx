@@ -9,9 +9,11 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <div>
+    <div className="lg:h-screen">
       <Header />
-      <div>{children}</div>
+      <div className="absolute top-[75px] bottom-0 left-0 ring-0">
+        {children}
+      </div>
     </div>
   );
 }

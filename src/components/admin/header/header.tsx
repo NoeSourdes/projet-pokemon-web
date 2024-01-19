@@ -50,7 +50,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="px-10 max-lg:px-5 max-sm:px-2 py-5 flex justify-between items-center border-b">
+    <div className="px-10 max-lg:px-5 max-sm:px-2 flex justify-between items-center border-b h-[75px]">
       <div className="flex justify-center items-center gap-5">
         <div className="flex justify-center items-center gap-3">
           <MdCatchingPokemon className="text-primary h-10 w-10" />
