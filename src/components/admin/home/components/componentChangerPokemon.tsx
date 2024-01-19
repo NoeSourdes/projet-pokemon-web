@@ -63,7 +63,7 @@ export const ComponentChangerPokemon = ({ pokedex }: Props) => {
           </div>
           <DrawerClose>
             <Link href="#">
-              <Button className="mt-5">Acheter d'autres Pokemon</Button>
+              <Button className="mt-5">Acheter d&apos;autres Pokemon</Button>
             </Link>
           </DrawerClose>
         </DrawerFooter>

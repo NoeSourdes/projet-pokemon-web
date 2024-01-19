@@ -48,7 +48,7 @@ export const ComponentUpadtePokemon = ({
         Le pokemon est au maximum de son évolution
       </h1>
       <Link href="#">
-        <Button className="mt-5">Acheter d'autres Pokemon</Button>
+        <Button className="mt-5">Acheter d&apos;autres Pokemon</Button>
       </Link>
     </div>
   ) : (

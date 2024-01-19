@@ -141,7 +141,7 @@ export const CardPokemon = ({ data, loading }: Props) => {
           )}
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Passer à l'évolution supérieur</DialogTitle>
+              <DialogTitle>Passer à l&apos;évolution supérieur</DialogTitle>
               <DialogDescription className="flex justify-center items-center">
                 <ComponentUpadtePokemon
                   data={data}

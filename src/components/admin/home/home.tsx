@@ -26,7 +26,7 @@ export const Home = () => {
       <div className="lg:w-[40%] p-10 max-lg:flex max-lg:justify-center">
         <CardPokemon data={data} loading={loading} />
       </div>
-      <div className="lg:w-[60%] h-[500px] bg-primary"></div>
+      <div className="lg:w-[60%]"></div>
     </div>
   );
 };
