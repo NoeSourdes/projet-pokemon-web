@@ -63,6 +63,7 @@ model Profil {
   level Int @default(1)
   progress Int @default(10)
   pokedex String[] @default([])
+  allPokemon String[] @default([])
 }
 
 model UserSession {

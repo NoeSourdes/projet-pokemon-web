@@ -13,6 +13,7 @@ interface Pokemon {
   typeFrench: string;
   pokemon_couple: string[];
   evolution_stage: string;
+  price?: number;
 }
 
 const pokemons: Pokemon[] = [
@@ -31,6 +32,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "plante",
     pokemon_couple: ["Bulbasaur", "Ivysaur", "Venusaur"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 2,
@@ -47,6 +49,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "plante",
     pokemon_couple: ["Bulbasaur", "Ivysaur", "Venusaur"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 3,
@@ -63,6 +66,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "plante",
     pokemon_couple: ["Bulbasaur", "Ivysaur", "Venusaur"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 4,
@@ -79,6 +83,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "feu",
     pokemon_couple: ["Charmander", "Charmeleon", "Charizard"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 5,
@@ -95,6 +100,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "feu",
     pokemon_couple: ["Charmander", "Charmeleon", "Charizard"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 6,
@@ -112,6 +118,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "feu",
     pokemon_couple: ["Charmander", "Charmeleon", "Charizard"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 7,
@@ -128,6 +135,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "eau",
     pokemon_couple: ["Squirtle", "Wartortle", "Blastoise"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 8,
@@ -144,6 +152,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "eau",
     pokemon_couple: ["Squirtle", "Wartortle", "Blastoise"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 9,
@@ -161,6 +170,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "eau",
     pokemon_couple: ["Squirtle", "Wartortle", "Blastoise"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 10,
@@ -177,6 +187,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Caterpie", "Metapod", "Butterfree"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 11,
@@ -194,6 +205,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Caterpie", "Metapod", "Butterfree"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 12,
@@ -210,6 +222,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Caterpie", "Metapod", "Butterfree"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 13,
@@ -227,6 +240,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Weedle", "Kakuna", "Beedrill"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 14,
@@ -244,6 +258,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Weedle", "Kakuna", "Beedrill"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 15,
@@ -261,6 +276,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "insecte",
     pokemon_couple: ["Weedle", "Kakuna", "Beedrill"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 16,
@@ -273,10 +289,11 @@ const pokemons: Pokemon[] = [
     attack: 45,
     special_attack: 35,
     special_defense: 35,
-    type: "normal",
-    typeFrench: "normal",
+    type: "flying",
+    typeFrench: "vol",
     pokemon_couple: ["Pidgey", "Pidgeotto", "Pidgeot"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 17,
@@ -290,10 +307,11 @@ const pokemons: Pokemon[] = [
     attack: 60,
     special_attack: 50,
     special_defense: 50,
-    type: "normal",
-    typeFrench: "normal",
+    type: "flying",
+    typeFrench: "vol",
     pokemon_couple: ["Pidgey", "Pidgeotto", "Pidgeot"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 18,
@@ -307,10 +325,11 @@ const pokemons: Pokemon[] = [
     attack: 80,
     special_attack: 70,
     special_defense: 70,
-    type: "normal",
-    typeFrench: "normal",
+    type: "flying",
+    typeFrench: "vol",
     pokemon_couple: ["Pidgey", "Pidgeotto", "Pidgeot"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 19,
@@ -328,6 +347,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "normal",
     pokemon_couple: ["Rattata", "Raticate"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 20,
@@ -345,6 +365,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "normal",
     pokemon_couple: ["Rattata", "Raticate"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 21,
@@ -358,10 +379,11 @@ const pokemons: Pokemon[] = [
     attack: 60,
     special_attack: 31,
     special_defense: 31,
-    type: "normal",
-    typeFrench: "normal",
+    type: "flying",
+    typeFrench: "vol",
     pokemon_couple: ["Spearow", "Fearow"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 22,
@@ -379,6 +401,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "normal",
     pokemon_couple: ["Spearow", "Fearow"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 23,
@@ -396,6 +419,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Ekans", "Arbok"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 24,
@@ -413,6 +437,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Ekans", "Arbok"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 25,
@@ -430,6 +455,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "electrik",
     pokemon_couple: ["Pikachu", "Raichu"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 26,
@@ -447,6 +473,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "electrik",
     pokemon_couple: ["Pikachu", "Raichu"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 27,
@@ -464,6 +491,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "sol",
     pokemon_couple: ["Sandshrew", "Sandslash"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 28,
@@ -481,6 +509,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "sol",
     pokemon_couple: ["Sandshrew", "Sandslash"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 29,
@@ -498,6 +527,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♀", "Nidorina", "Nidoqueen"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 30,
@@ -515,6 +545,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♀", "Nidorina", "Nidoqueen"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 31,
@@ -532,6 +563,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♀", "Nidorina", "Nidoqueen"],
     evolution_stage: "third",
+    price: 380,
   },
   {
     id: 32,
@@ -549,6 +581,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♂", "Nidorino", "Nidoking"],
     evolution_stage: "first",
+    price: 160,
   },
   {
     id: 33,
@@ -566,6 +599,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♂", "Nidorino", "Nidoking"],
     evolution_stage: "second",
+    price: 230,
   },
   {
     id: 34,
@@ -583,6 +617,7 @@ const pokemons: Pokemon[] = [
     typeFrench: "poison",
     pokemon_couple: ["Nidoran♂", "Nidorino", "Nidoking"],
     evolution_stage: "third",
+    price: 380,
   },
 ];
 

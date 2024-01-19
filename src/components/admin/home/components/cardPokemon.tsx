@@ -13,7 +13,6 @@ import {
 import { ComponentUpadtePokemon } from "@/components/admin/home/components/componentUpadtePokemon";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ComponentChangerPokemon } from "@/components/admin/home/components/componentChangerPokemon";
-import pokemons from "@/app/assets/dictionnaire/pokemonDict";
 
 interface Props {
   loading: boolean;
@@ -92,8 +91,8 @@ export const CardPokemon = ({ data, loading }: Props) => {
             className="bg-secondary rounded-full"
             src={dataPokemon?.image || ""}
             alt={dataPokemon?.name || ""}
-            width={300}
-            height={300}
+            width={245}
+            height={245}
           />
         )}
       </div>
@@ -133,11 +132,11 @@ export const CardPokemon = ({ data, loading }: Props) => {
         <Dialog>
           {loading ? (
             <div className="border rounded-[7px] px-3 py-2">
-              Améliorer le pokemon
+              Acheter l'évolution
             </div>
           ) : (
             <DialogTrigger className="border rounded-[7px] px-3 py-2 text-sm font-medium">
-              Améliorer le pokemon
+              Acheter l'évolution
             </DialogTrigger>
           )}
           <DialogContent>

@@ -19,7 +19,6 @@ interface Props {
 
 export const ComponentChangerPokemon = ({ pokedex }: Props) => {
   const [pokemonData, setPokemonData] = React.useState<any[]>([]);
-  console.log(pokemonData);
   useEffect(() => {
     const fetchPokemons = async () => {
       if (Array.isArray(pokedex)) {
@@ -62,7 +61,7 @@ export const ComponentChangerPokemon = ({ pokedex }: Props) => {
             ))}
           </div>
           <DrawerClose>
-            <Link href="#">
+            <Link href="/admin/magasin">
               <Button className="mt-5">Acheter d&apos;autres Pokemon</Button>
             </Link>
           </DrawerClose>

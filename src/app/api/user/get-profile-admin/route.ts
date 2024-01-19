@@ -15,6 +15,7 @@ export async function GET(req: Request) {
         level: true,
         pokedex: true,
         progress: true,
+        allPokemon: true,
       },
     });
     return NextResponse.json({ user: getUser }, { status: 200 });

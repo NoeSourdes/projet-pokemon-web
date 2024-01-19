@@ -28,7 +28,6 @@ interface data {
 export const Header = () => {
   const [data, setData] = useState<data | null>(null);
   const { data: session } = useSession();
-  console.log(data);
   const [loading, setLoading] = useState(true);
 
   const getProfile = async () => {
@@ -52,23 +51,20 @@ export const Header = () => {
   return (
     <div className="px-10 max-lg:px-5 max-sm:px-2 flex justify-between items-center border-b h-[75px]">
       <div className="flex justify-center items-center gap-5">
-        <div className="flex justify-center items-center gap-3">
-          <MdCatchingPokemon className="text-primary h-10 w-10" />
-          <h1 className="text-3xl font-bold">PokéLand</h1>
-        </div>
-        <Link href="#">
-          <Button className="hidden lg:block" variant="outline">
-            Améliorer le pokemon
-          </Button>
+        <Link href="/admin">
+          <div className="flex justify-center items-center gap-3 cursor-pointer">
+            <MdCatchingPokemon className="text-primary h-10 w-10" />
+            <h1 className="text-3xl font-bold">PokéLand</h1>
+          </div>
         </Link>
-        <Link href="#">
+        <Link href="/admin/pokedex">
           <Button className="hidden lg:flex">
             <CgPokemon className="mr-2 h-6 w-6" /> Pokedex
           </Button>
         </Link>
       </div>
       <div className="flex justify-center items-center gap-5 max-xl:gap-2">
-        <Link href="#" className="hidden xl:block">
+        <Link href="/admin/magasin" className="hidden xl:block">
           <Button variant="outline">Magasin</Button>
         </Link>
         {loading ? (

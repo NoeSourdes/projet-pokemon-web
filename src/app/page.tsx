@@ -11,7 +11,6 @@ export default function Home() {
     signIn("google", { callbackUrl: "/admin" });
   };
   const { data: session } = useSession();
-  console.log(session);
   return (
     <main className="relative sm:h-screen w-screen flex flex-col justify-center items-center">
       <div className="lg:flex justify-center items-center gap-28 hidden">

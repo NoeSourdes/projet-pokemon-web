@@ -4,25 +4,26 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { personnage, pokemon, id } = body;
+    const { pokemon, price, id } = body;
 
-    const user = await db.user.findUnique({
-      where: {
-        id: id,
-      },
-    });
-    if (!user) {
-      throw new Error("User not found");
-    }
-    const upadteProfile = await db.profil.create({
+    const updatedUser = await db.profil.update({
+      where: { idUser: id },
       data: {
-        idUser: id,
-        personnageName: personnage,
-        pokedex: [pokemon],
+        allPokemon: {
+          push: pokemon,
+        },
+        money: {
+          decrement: price,
+        },
       },
     });
+
     return NextResponse.json(
-      { user: upadteProfile, message: "Utilisateur mis à jour avec succès" },
+      {
+        user: updatedUser,
+        message:
+          "Votre Pokémon a été acheté. Consultez votre Pokédex pour l'utiliser.",
+      },
       { status: 200 },
     );
   } catch (error) {

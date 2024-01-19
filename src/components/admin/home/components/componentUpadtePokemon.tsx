@@ -3,6 +3,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FaLock } from "react-icons/fa";
 import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { CardPokemonSpecification } from "@/components/admin/home/components/cardPokemonSpecification";
 
 interface Props {
   data: any;
@@ -16,8 +25,6 @@ export const ComponentUpadtePokemon = ({
   rangPokemon,
 }: Props) => {
   const [dataPokemon, setDataPokemon] = React.useState<any>();
-  console.log(data.level);
-  console.log(evolution);
   useEffect(() => {
     if (evolution) {
       const getPokemon = async () => {
@@ -30,7 +37,6 @@ export const ComponentUpadtePokemon = ({
       getPokemon();
     }
   }, [evolution]);
-  console.log(dataPokemon);
   let rang: number;
   switch (rangPokemon) {
     case "first":
@@ -58,13 +64,28 @@ export const ComponentUpadtePokemon = ({
           {dataPokemon?.name || ""}
         </h1>
         <Image
-          className="object-scale-down"
+          className="object-scale-down mb-2"
           src={dataPokemon?.image || ""}
           alt={dataPokemon?.name || ""}
           width={160}
           height={160}
         />
-        <Button className="mt-5">Acheter</Button>
+        <Dialog>
+          <DialogTrigger>
+            <Button className="bg-primary">Acheter</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Spécifications</DialogTitle>
+              <DialogDescription>
+                <CardPokemonSpecification
+                  data={data}
+                  pokemon={dataPokemon?.nameFrench}
+                />
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
       {data?.user.level < rang && (
         <div className="absolute inset-0 bg-black rounded-[20px] opacity-75 flex justify-center items-center">

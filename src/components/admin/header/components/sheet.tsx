@@ -65,17 +65,12 @@ export const ComponentSheet = ({ loading, data, session }: Props) => {
                 </div>
               </div>
               <div className="flex flex-col items-start space-y-3 mt-5">
-                <Link className="w-full" href="#">
+                <Link className="w-full" href="/admin/pokedex">
                   <Button className="flex w-full">
                     <CgPokemon className="mr-2 h-6 w-6" /> Pokedex
                   </Button>
                 </Link>{" "}
-                <Link className="w-full" href="#">
-                  <Button className="w-full" variant="outline">
-                    Améliorer le pokemon
-                  </Button>
-                </Link>
-                <Link href="#" className="w-full">
+                <Link href="/admin/magasin" className="w-full">
                   <Button className="w-full" variant="outline">
                     Magasin
                   </Button>
