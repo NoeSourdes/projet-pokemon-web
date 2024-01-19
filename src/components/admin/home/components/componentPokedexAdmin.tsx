@@ -102,6 +102,7 @@ export const ComponentPokedexAdmin = ({ data, pokedex }: Props) => {
             </div>
           ) : (
             <div
+              key={index}
               className={`border rounded-[10px] grow p-2 ${
                 pokedex ? "min-w-[120px] grow" : "w-[120px]"
               } h-[160px] bg-secondary flex flex-col justify-around items-center`}

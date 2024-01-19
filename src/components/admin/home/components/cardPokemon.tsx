@@ -132,11 +132,11 @@ export const CardPokemon = ({ data, loading }: Props) => {
         <Dialog>
           {loading ? (
             <div className="border rounded-[7px] px-3 py-2">
-              Acheter l'évolution
+              Acheter l&apos;évolution
             </div>
           ) : (
             <DialogTrigger className="border rounded-[7px] px-3 py-2 text-sm font-medium">
-              Acheter l'évolution
+              Acheter l&apos;évolution
             </DialogTrigger>
           )}
           <DialogContent>
