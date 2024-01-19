@@ -23,7 +23,7 @@ export const Home = () => {
   }, []);
   return (
     <div className="w-screen h-full lg:flex lg:justify-between">
-      <div className="lg:w-[40%] p-10 max-lg:flex max-lg:justify-center">
+      <div className="lg:w-[40%] max-lg:p-5 p-10 max-lg:flex max-lg:justify-center max-sm:p-3">
         <CardPokemon data={data} loading={loading} />
       </div>
       <div className="lg:w-[60%]"></div>
