@@ -49,7 +49,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="px-10 max-lg:px-5 max-sm:px-2 flex justify-between items-center border-b h-[75px]">
+    <div className="px-10 max-lg:px-5 max-sm:px-2 flex justify-between items-center border-b py-4">
       <div className="flex justify-center items-center gap-5">
         <Link href="/admin">
           <div className="flex justify-center items-center gap-3 cursor-pointer">
@@ -106,7 +106,7 @@ export const Header = () => {
         )}
         <div className="lg:block hidden">
           <Popover>
-            <PopoverTrigger>
+            <PopoverTrigger className="flex justify-center items-center">
               <Avatar>
                 <AvatarImage src={session?.user.image || undefined} />
                 <AvatarFallback>

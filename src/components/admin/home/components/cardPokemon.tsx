@@ -35,7 +35,13 @@ export const CardPokemon = ({ data, loading }: Props) => {
     "flex justify-between items-center gap-3 max-sm:text-sm";
   const [dataPokemon, setDataPokemon] = React.useState<any>();
   const [pokedex, setPokedex] = React.useState<any>();
-  const pokemonName = data?.user.pokedex[0];
+  const [pokemonName, setPokemonName] = React.useState<any>(
+    data?.user.pokedex[0],
+  );
+
+  React.useEffect(() => {
+    setPokemonName(data?.user.pokedex[0]);
+  }, [data]);
   useEffect(() => {
     if (pokemonName) {
       const getPokemon = async () => {
@@ -66,7 +72,10 @@ export const CardPokemon = ({ data, loading }: Props) => {
   return (
     <div className="h-full w-full border rounded-[20px] p-5 flex flex-col justify-between max-w-[700px] space-y-5">
       <div className="flex justify-end">
-        <ComponentChangerPokemon pokedex={pokedex} />
+        <ComponentChangerPokemon
+          pokedex={pokedex}
+          setPokemonName={setPokemonName}
+        />
       </div>
       <div className="w-full flex flex-col justify-center items-center space-y-5">
         <div className="text-center">
@@ -85,15 +94,17 @@ export const CardPokemon = ({ data, loading }: Props) => {
           )}
         </div>
         {loading ? (
-          <Skeleton className="w-[300px] h-[300px] rounded-full" />
+          <Skeleton className="w-[245px] h-[245px] rounded-full" />
         ) : (
-          <Image
-            className="bg-secondary rounded-full"
-            src={dataPokemon?.image || ""}
-            alt={dataPokemon?.name || ""}
-            width={245}
-            height={245}
-          />
+          <div className="">
+            <Image
+              className="bg-secondary rounded-full"
+              src={dataPokemon?.image || ""}
+              alt={dataPokemon?.name || ""}
+              width={245}
+              height={245}
+            />
+          </div>
         )}
       </div>
       <div className="space-y-5">

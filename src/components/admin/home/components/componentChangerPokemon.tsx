@@ -15,9 +15,10 @@ import Link from "next/link";
 
 interface Props {
   pokedex: any;
+  setPokemonName: (name: string) => void;
 }
 
-export const ComponentChangerPokemon = ({ pokedex }: Props) => {
+export const ComponentChangerPokemon = ({ pokedex, setPokemonName }: Props) => {
   const [pokemonData, setPokemonData] = React.useState<any[]>([]);
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -32,6 +33,10 @@ export const ComponentChangerPokemon = ({ pokedex }: Props) => {
 
     fetchPokemons();
   }, [pokedex]);
+
+  const handleChangePokemon = (name: string) => {
+    setPokemonName(name);
+  };
 
   return (
     <Drawer>
@@ -48,7 +53,11 @@ export const ComponentChangerPokemon = ({ pokedex }: Props) => {
         <DrawerFooter>
           <div className="flex justify-center">
             {pokemonData.map((pokemon, index) => (
-              <DrawerClose key={index} className="flex mb-3">
+              <DrawerClose
+                onClick={() => handleChangePokemon(pokemon.name)}
+                key={index}
+                className="flex mb-3"
+              >
                 <div className="border flex mx-3 rounded-[20px] cursor-pointer">
                   <Image
                     src={pokemon.image}

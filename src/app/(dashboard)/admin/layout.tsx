@@ -10,13 +10,11 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className="lg:h-screen">
+    <div className="lg:h-screen flex flex-col min-h-screen">
       <Header />
-      <div className="lg:absolute lg:top-[75px] lg:bottom-[50px] lg:left-0 ring-0">
-        {children}
-      </div>
+      <div className="ring-0 flex-grow">{children}</div>
       <div>
-        <div className="lg:absolute lg:bottom-0 lg:left-0 w-full">
+        <div className="w-full">
           <Footer />
         </div>
       </div>

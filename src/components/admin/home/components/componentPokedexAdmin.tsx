@@ -108,10 +108,10 @@ export const ComponentPokedexAdmin = ({ data, pokedex }: Props) => {
               } h-[160px] bg-secondary flex flex-col justify-around items-center`}
             >
               {!pokedex ? (
-                <Link href="/admin/magasin">
+                <Link href="/admin/pokedex">
                   <Button
                     variant="outline"
-                    className="bg-secondary border-primary"
+                    className="bg-secondary border-primary hover:bg-primary hover:text-black"
                   >
                     Ajouter
                   </Button>
