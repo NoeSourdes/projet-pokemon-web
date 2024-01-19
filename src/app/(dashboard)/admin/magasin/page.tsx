@@ -28,7 +28,9 @@ export default function Page() {
   useEffect(() => {
     const fetchPokemons = async () => {
       setIsLoading(true);
-      const response = await fetch(`http://localhost:3000/api/pokemons`);
+      const response = await fetch(
+        `https://thepokeland.vercel.app/api/pokemons`,
+      );
       if (response.ok) {
         const data = await response.json();
         setPokemonData(data);
@@ -42,7 +44,7 @@ export default function Page() {
   useEffect(() => {
     const getProfile = async () => {
       const response = await fetch(
-        "http://localhost:3000/api/user/get-profile-admin",
+        "https://thepokeland.vercel.app/api/user/get-profile-admin",
         {
           method: "GET",
           headers: {
