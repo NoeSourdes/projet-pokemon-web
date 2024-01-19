@@ -13,7 +13,7 @@ export default function Home() {
   const { data: session } = useSession();
   console.log(session);
   return (
-    <main className="relative h-screen w-screen flex flex-col justify-center items-center">
+    <main className="relative sm:h-screen w-screen flex flex-col justify-center items-center">
       <div className="lg:flex justify-center items-center gap-28 hidden">
         <div>
           <Image
@@ -32,7 +32,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="absolute">
+      <div className="sm:absolute max-sm:mt-36">
         <div className="flex flex-col justify-center items-center">
           <Image
             src="/img/logo.png"
