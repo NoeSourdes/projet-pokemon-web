@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import React, { useEffect } from "react";
 
 interface Props {
   pokemon: any;
@@ -86,8 +87,8 @@ export const CardPokemonSpecification = ({ pokemon }: Props) => {
         </Badge>{" "}
       </div>
       <div className="flex justify-center items-center bg-secondary rounded-full p-5">
-        <img
-          src={pokemonData.image}
+        <Image
+          src={pokemonData?.image ? pokemonData.image : pokemonData}
           alt={pokemonData.name}
           className="w-[200px] h-[200px]"
         />
