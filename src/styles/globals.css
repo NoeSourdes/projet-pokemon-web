@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
 @layer base {
   :root {
@@ -50,7 +49,6 @@
   }
 }
 
- 
 @layer base {
   * {
     @apply border-border;
@@ -61,18 +59,15 @@
 }
 
 .neumorphism-salameche {
-  box-shadow: inset 5px -5px 14px #b96325,
-  inset -5px 5px 14px #ff9d3b;
+  box-shadow: inset 5px -5px 14px #b96325, inset -5px 5px 14px #ff9d3b;
 }
 
 .neumorphism-bulbizarre {
-  box-shadow: inset 5px -5px 14px #3b9d28,
-  inset -5px 5px 14px #6bff3b;
+  box-shadow: inset 5px -5px 14px #3b9d28, inset -5px 5px 14px #6bff3b;
 }
 
 .neumorphism-carapuce {
-  box-shadow: inset 5px -5px 14px #3b5d9d,
-  inset -5px 5px 14px #3b9dff;
+  box-shadow: inset 5px -5px 14px #3b5d9d, inset -5px 5px 14px #3b9dff;
 }
 
 .pokemon-card {
@@ -94,9 +89,9 @@
 
 .use-button {
   position: absolute;
-  bottom: 10px;
+  bottom: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 50%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }

@@ -1,12 +1,3 @@
-import React from "react";
-import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,9 +10,18 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
-import { toast } from "sonner";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import React from "react";
+import { toast } from "sonner";
 
 const personnages = [
   {
@@ -33,6 +33,11 @@ const personnages = [
     name: "Ondine",
     type: "Fille",
     img: "/img/ondine.png",
+  },
+  {
+    name: "Pierre",
+    type: "Garçon",
+    img: "/img/pierre.png",
   },
 ];
 

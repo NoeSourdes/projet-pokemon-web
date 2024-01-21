@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import { ComponentSheet } from "@/components/admin/header/components/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { CgPokemon } from "react-icons/cg";
-import { MdCatchingPokemon } from "react-icons/md";
-import { Progress } from "@/components/ui/progress";
-import { Skeleton } from "@/components/ui/skeleton";
-import { RiMoneyEuroCircleLine } from "react-icons/ri";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
 import { signOut, useSession } from "next-auth/react";
-import { ComponentSheet } from "@/components/admin/header/components/sheet";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { CgPokemon } from "react-icons/cg";
+import { MdCatchingPokemon } from "react-icons/md";
+import { RiMoneyEuroCircleLine } from "react-icons/ri";
 
 interface data {
   user: {
@@ -28,6 +28,7 @@ interface data {
 export const Header = () => {
   const [data, setData] = useState<data | null>(null);
   const { data: session } = useSession();
+
   const [loading, setLoading] = useState(true);
 
   const getProfile = async () => {

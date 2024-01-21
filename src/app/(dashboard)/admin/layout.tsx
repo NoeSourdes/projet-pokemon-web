@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { Header } from "@/components/admin/header/header";
 import Footer from "@/components/admin/footer/page";
+import { Header } from "@/components/admin/header/header";
+import React from "react";
 
 interface Props {
   children: React.ReactNode;

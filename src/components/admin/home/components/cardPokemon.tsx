@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import React, { useEffect } from "react";
 
+import { ComponentChangerPokemon } from "@/components/admin/home/components/componentChangerPokemon";
+import { ComponentUpadtePokemon } from "@/components/admin/home/components/componentUpadtePokemon";
 import {
   Dialog,
   DialogContent,
@@ -10,9 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ComponentUpadtePokemon } from "@/components/admin/home/components/componentUpadtePokemon";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ComponentChangerPokemon } from "@/components/admin/home/components/componentChangerPokemon";
 
 interface Props {
   loading: boolean;
@@ -35,9 +34,7 @@ export const CardPokemon = ({ data, loading }: Props) => {
     "flex justify-between items-center gap-3 max-sm:text-sm";
   const [dataPokemon, setDataPokemon] = React.useState<any>();
   const [pokedex, setPokedex] = React.useState<any>();
-  const [pokemonName, setPokemonName] = React.useState<any>(
-    data?.user.pokedex[0],
-  );
+  const [pokemonName, setPokemonName] = React.useState(data?.user.pokedex[0]);
 
   React.useEffect(() => {
     setPokemonName(data?.user.pokedex[0]);
@@ -54,7 +51,7 @@ export const CardPokemon = ({ data, loading }: Props) => {
       };
       getPokemon();
     }
-  }, [pokemonName]);
+  }, [pokemonName, data?.user.pokedex]);
   const rangPokemon = dataPokemon?.evolution_stage;
   let evolution = "";
   switch (rangPokemon) {
@@ -99,8 +96,8 @@ export const CardPokemon = ({ data, loading }: Props) => {
           <div className="">
             <Image
               className="bg-secondary rounded-full"
-              src={dataPokemon?.image || ""}
-              alt={dataPokemon?.name || ""}
+              src={dataPokemon?.image ? dataPokemon.image : "/img/pokeball.png"}
+              alt={dataPokemon?.name || "le nom du pokemon"}
               width={245}
               height={245}
             />

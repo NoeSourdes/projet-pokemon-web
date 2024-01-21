@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import { CardPokemon } from "@/components/admin/home/components/cardPokemon";
-import { ComponentPokedexAdmin } from "@/components/admin/home/components/componentPokedexAdmin";
 import { ComponentCombat } from "@/components/admin/home/components/componentCombat";
+import { ComponentPokedexAdmin } from "@/components/admin/home/components/componentPokedexAdmin";
+import React, { useEffect } from "react";
 
 export const Home = () => {
   const [data, setData] = React.useState<any>();
@@ -24,7 +24,7 @@ export const Home = () => {
     getProfile();
   }, []);
   return (
-    <div className="w-screen h-full lg:flex lg:justify-between">
+    <div className="w-screen lg:flex lg:justify-between">
       <div className="lg:w-[40%] max-lg:p-5 p-10 max-lg:flex max-lg:justify-center">
         <CardPokemon data={data} loading={loading} />
       </div>

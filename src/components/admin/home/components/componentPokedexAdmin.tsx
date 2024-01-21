@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect } from "react";
 
 interface Props {
   data: any;
@@ -87,14 +87,18 @@ export const ComponentPokedexAdmin = ({ data, pokedex }: Props) => {
                 {pokemonData[index]?.nameFrench || ""}
               </h1>
               <Image
-                src={pokemonData[index]?.image}
-                alt={pokemonData[index]?.name}
+                src={
+                  pokemonData[index]?.image
+                    ? pokemonData[index].image
+                    : "/img/pokeball.png"
+                }
+                alt={pokemonData[index]?.name ? pokemonData[index].name : ""}
                 width={80}
                 height={80}
               />
               <Badge
                 className={`text-sm ${getTypeColor(
-                  pokemonData[index]?.typeFrench,
+                  pokemonData[index]?.typeFrench
                 )}`}
               >
                 {pokemonData[index]?.typeFrench}
@@ -120,7 +124,7 @@ export const ComponentPokedexAdmin = ({ data, pokedex }: Props) => {
                 <div>Vide</div>
               )}
             </div>
-          ),
+          )
         )}
       </div>
     </div>
