@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -39,6 +50,10 @@ export const CombatPokedex = () => {
       dresser = "/img/sacha.png";
   }
 
+  const handleCombat = () => {
+    console.log("combat");
+  };
+
   return (
     <div className="h-full w-full border rounded-[20px] flex justify-center flex-wrap p-4 gap-4">
       <div className="">
@@ -55,7 +70,28 @@ export const CombatPokedex = () => {
         <VoirPokedex pokedex={data?.user.pokedex} value="Voir mon Pokedex" />
       </div>
       <div className=" rounded-[10px] bg-secondary grow flex justify-center items-center p-3">
-        <Button>COMBAT !!</Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button>COMBATTRE !</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                {" "}
+                êtes-vous sûre de vouloir commencer un combat ?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                Vous allez combattre avec votre Pokedex
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Annuler</AlertDialogCancel>
+              <AlertDialogAction onClick={() => handleCombat()}>
+                COMBATTRE !
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );

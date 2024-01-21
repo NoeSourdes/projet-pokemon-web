@@ -1,9 +1,23 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { ComponentChoosePokemon } from "./choosePokemon";
 
 export const CombatSolo = () => {
+  const router = useRouter();
   const [data, setData] = useState<any>();
   const [namePokemon, setNamePokemon] = useState<string>("");
   const [pokemonData, setPokemonData] = useState<any[]>([]);
@@ -55,6 +69,16 @@ export const CombatSolo = () => {
       dresser = "/img/sacha.png";
   }
 
+  const handleCombat = (Pokemon: any, urlDresseur: string) => {
+    if (!Pokemon[0] || !urlDresseur) {
+      toast.error("Vous devez choisir un Pokemon");
+    } else {
+      const pokemonString = JSON.stringify(Pokemon);
+      const queryString = `Pokemon=${pokemonString}&urlDresseur=${urlDresseur}`;
+      router.push(`/admin/combat?${queryString}`);
+    }
+  };
+
   return (
     <div className="h-full w-full border rounded-[20px] flex justify-center flex-wrap p-4 gap-4">
       <div className="">
@@ -98,7 +122,30 @@ export const CombatSolo = () => {
         )}
       </div>
       <div className=" rounded-[10px] bg-secondary grow flex justify-center items-center p-3">
-        <Button>COMBAT !!</Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button>COMBATTRE !</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                {" "}
+                êtes-vous sûre de vouloir commencer un combat ?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                Vous allez combattre avec votre Pokemon
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Annuler</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => handleCombat(pokemonData, dresser)}
+              >
+                COMBATTRE !
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );

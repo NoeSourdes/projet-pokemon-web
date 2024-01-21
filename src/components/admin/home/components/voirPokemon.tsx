@@ -25,7 +25,7 @@ export const VoirPokedex = ({ pokedex, value, changePokemon }: Props) => {
     const fetchPokemons = async () => {
       if (Array.isArray(pokedex)) {
         const promises = pokedex.map((pokemon: string) =>
-          fetch(`/api/pokemons/${pokemon}`).then((response) => response.json())
+          fetch(`api/pokemons/${pokemon}`).then((response) => response.json())
         );
         const results = await Promise.all(promises);
         setPokemonData(results);

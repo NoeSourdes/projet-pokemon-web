@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { CardPokemonSpecification } from "@/components/admin/home/components/cardPokemonSpecification";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -14,10 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { CardPokemonSpecification } from "@/components/admin/home/components/cardPokemonSpecification";
-import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+import { toast } from "sonner";
 
 export default function Page() {
   const [search, setSearch] = React.useState<string>("");
@@ -28,9 +27,7 @@ export default function Page() {
   useEffect(() => {
     const fetchPokemons = async () => {
       setIsLoading(true);
-      const response = await fetch(
-        `https://thepokeland.vercel.app/api/pokemons`,
-      );
+      const response = await fetch(`/api/pokemons`);
       if (response.ok) {
         const data = await response.json();
         setPokemonData(data);
@@ -43,15 +40,12 @@ export default function Page() {
 
   useEffect(() => {
     const getProfile = async () => {
-      const response = await fetch(
-        "https://thepokeland.vercel.app/api/user/get-profile-admin",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await fetch("/api/user/get-profile-admin", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      });
       if (response.ok) {
         const data = await response.json();
         setData(data);
@@ -162,7 +156,7 @@ export default function Page() {
                       .toLowerCase()
                       .includes(search.toLowerCase()) &&
                     !data?.user.allPokemon?.includes(pokemon.name) &&
-                    !data?.user.pokedex?.includes(pokemon.name),
+                    !data?.user.pokedex?.includes(pokemon.name)
                 )
                 .map((pokemon: any) => (
                   <div
