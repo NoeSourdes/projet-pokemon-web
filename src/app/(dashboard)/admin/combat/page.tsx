@@ -31,10 +31,17 @@ export default function Page() {
   const [urlDresseurRandom, setUrlDresseurRandom] = useState<string>("");
   const [randomPokemon, setRandomPokemon] = useState<Pokemon | null>(null);
   const [combat, setCombat] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState<boolean>(false);
+  if (countdown) {
+    setTimeout(() => {
+      setCountdown(false);
+    }, 3100);
+  }
   return (
     <div className="h-full w-full flex justify-center items-center">
       {combat ? (
         <Componentfite
+          countdown={countdown}
           objectPokemon={objectPokemon}
           urlDresseur={urlDresseur}
           urlDresseurRandom={urlDresseurRandom}
@@ -42,6 +49,7 @@ export default function Page() {
         />
       ) : (
         <Combat
+          setCoutdown={setCountdown}
           objectPokemon={objectPokemon}
           urlDresseur={urlDresseur}
           urlDresseurRandom={urlDresseurRandom}

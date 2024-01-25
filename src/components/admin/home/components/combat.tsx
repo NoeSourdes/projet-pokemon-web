@@ -15,6 +15,7 @@ interface Props {
   randomPokemon: any;
   setRandomPokemon: any;
   setCombat: any;
+  setCoutdown: any;
 }
 
 export const Combat = ({
@@ -25,6 +26,7 @@ export const Combat = ({
   randomPokemon,
   setRandomPokemon,
   setCombat,
+  setCoutdown,
 }: Props) => {
   interface Pokemon {
     id: number;
@@ -91,6 +93,7 @@ export const Combat = ({
   }, []);
 
   const handleCombat = () => {
+    setCoutdown(true);
     setCombat(true);
   };
 

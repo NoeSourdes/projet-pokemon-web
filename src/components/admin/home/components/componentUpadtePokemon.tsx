@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
-import Image from "next/image";
+import { CardPokemonSpecification } from "@/components/admin/home/components/cardPokemonSpecification";
 import { Button } from "@/components/ui/button";
-import { FaLock } from "react-icons/fa";
-import Link from "next/link";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +8,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { CardPokemonSpecification } from "@/components/admin/home/components/cardPokemonSpecification";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect } from "react";
+import { FaLock } from "react-icons/fa";
 
 interface Props {
   data: any;
@@ -87,7 +87,7 @@ export const ComponentUpadtePokemon = ({
           </DialogContent>
         </Dialog>
       </div>
-      {data?.user.level < rang && (
+      {data?.user?.level < rang && (
         <div className="absolute inset-0 bg-black rounded-[20px] opacity-75 flex justify-center items-center">
           <div className="absolute inset-0 flex flex-col justify-center items-center">
             <FaLock className="w-10 h-10" />

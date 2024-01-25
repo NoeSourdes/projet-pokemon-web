@@ -108,7 +108,7 @@ export const CombatSolo = () => {
             <ComponentChoosePokemon
               value="Changer de Pokemon"
               setPokemonName={setNamePokemon}
-              pokedex={data?.user.pokedex}
+              pokedex={data?.user?.pokedex}
               changePokemon={true}
             />
           </div>
@@ -117,7 +117,7 @@ export const CombatSolo = () => {
           <ComponentChoosePokemon
             value="Choisir son Pokemon"
             setPokemonName={setNamePokemon}
-            pokedex={data?.user.pokedex}
+            pokedex={data?.user?.pokedex}
           />
         )}
       </div>

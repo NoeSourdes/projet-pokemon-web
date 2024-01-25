@@ -67,7 +67,7 @@ export const CombatPokedex = () => {
       </div>
       <div className=" rounded-[10px] bg-secondary grow flex flex-col space-y-5 justify-center items-center p-3 ">
         <p className="font-medium text-center">Combattre avec son Pokedex</p>
-        <VoirPokedex pokedex={data?.user.pokedex} value="Voir mon Pokedex" />
+        <VoirPokedex pokedex={data?.user?.pokedex} value="Voir mon Pokedex" />
       </div>
       <div className=" rounded-[10px] bg-secondary grow flex justify-center items-center p-3">
         <AlertDialog>

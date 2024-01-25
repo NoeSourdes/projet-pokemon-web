@@ -78,14 +78,14 @@ export const Header = () => {
             {data && (
               <>
                 <Button className="hidden xl:block">
-                  Level {data.user.level}
+                  Level {data?.user?.level}
                 </Button>
                 <div className="items-center py-2 px-3 bg-secondary rounded-full gap-2 hidden xl:flex">
                   <Progress
-                    value={data.user.progress}
+                    value={data?.user?.progress}
                     className="w-[70px] h-2 bg-black"
                   />
-                  <p className="text-sm">{data.user.progress} %</p>
+                  <p className="text-sm">{data?.user?.progress} %</p>
                 </div>
               </>
             )}
@@ -99,7 +99,7 @@ export const Header = () => {
               <>
                 <div className="h-[35px] px-3 flex justify-between items-center gap-2 bg-secondary rounded-full">
                   <RiMoneyEuroCircleLine className="w-6 h-6 text-primary" />
-                  <span>{data?.user.money}</span>
+                  <span>{data?.user?.money}</span>
                 </div>
               </>
             )}

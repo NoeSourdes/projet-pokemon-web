@@ -34,10 +34,10 @@ export const CardPokemon = ({ data, loading }: Props) => {
     "flex justify-between items-center gap-3 max-sm:text-sm";
   const [dataPokemon, setDataPokemon] = React.useState<any>();
   const [pokedex, setPokedex] = React.useState<any>();
-  const [pokemonName, setPokemonName] = React.useState(data?.user.pokedex[0]);
+  const [pokemonName, setPokemonName] = React.useState(data?.user?.pokedex[0]);
 
   React.useEffect(() => {
-    setPokemonName(data?.user.pokedex[0]);
+    setPokemonName(data?.user?.pokedex[0]);
   }, [data]);
   useEffect(() => {
     if (pokemonName) {
@@ -46,12 +46,12 @@ export const CardPokemon = ({ data, loading }: Props) => {
         if (response.ok) {
           const dataPokemon = await response.json();
           setDataPokemon(dataPokemon);
-          setPokedex(data.user.pokedex);
+          setPokedex(data.user?.pokedex);
         }
       };
       getPokemon();
     }
-  }, [pokemonName, data?.user.pokedex]);
+  }, [pokemonName, data?.user?.pokedex]);
   const rangPokemon = dataPokemon?.evolution_stage;
   let evolution = "";
   switch (rangPokemon) {

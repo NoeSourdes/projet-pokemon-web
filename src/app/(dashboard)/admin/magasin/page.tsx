@@ -108,7 +108,7 @@ export default function Page() {
   };
 
   const handleAchat = async (pokemon: string, price: number) => {
-    if (data?.user.money < price) {
+    if (data?.user?.money < price) {
       toast.error("Vous n'avez pas assez d'argent");
     } else {
       const response = await fetch("/api/user/buy-pokemon", {
@@ -155,8 +155,8 @@ export default function Page() {
                     pokemon.nameFrench
                       .toLowerCase()
                       .includes(search.toLowerCase()) &&
-                    !data?.user.allPokemon?.includes(pokemon.name) &&
-                    !data?.user.pokedex?.includes(pokemon.name)
+                    !data?.user?.allPokemon?.includes(pokemon.name) &&
+                    !data?.user?.pokedex?.includes(pokemon.name)
                 )
                 .map((pokemon: any) => (
                   <div
@@ -194,9 +194,9 @@ export default function Page() {
                               pokemon={pokemon.nameFrench}
                             />
                             <div className="flex justify-center items-center mt-7">
-                              {(data?.user.level < 5 &&
+                              {(data?.user?.level < 5 &&
                                 pokemon.evolution_stage === "second") ||
-                              (data?.user.level < 10 &&
+                              (data?.user?.level < 10 &&
                                 pokemon.evolution_stage === "third") ? (
                                 <div className="border py-2 px-3 rounded-[7px]">
                                   {pokemon.evolution_stage === "second"

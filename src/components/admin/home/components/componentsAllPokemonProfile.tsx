@@ -54,7 +54,7 @@ function getTypeColor(type: string) {
 
 export const ComponentsAllPokemonProfile = ({ data, pokedex }: Props) => {
   const [pokemonData, setPokemonData] = React.useState<any[]>([]);
-  const pokemons = data?.user.allPokemon || [];
+  const pokemons = data?.user?.allPokemon || [];
   const { data: session } = useSession();
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export const ComponentsAllPokemonProfile = ({ data, pokedex }: Props) => {
             />
             <Badge
               className={`text-sm ${getTypeColor(
-                pokemonData[index]?.typeFrench,
+                pokemonData[index]?.typeFrench
               )}`}
             >
               {pokemonData[index]?.typeFrench}

@@ -53,7 +53,7 @@ function getTypeColor(type: string) {
 
 export const ComponentPokedexAdmin = ({ data, pokedex }: Props) => {
   const [pokemonData, setPokemonData] = React.useState<any[]>([]);
-  const pokemons = data?.user.pokedex || [];
+  const pokemons = data?.user?.pokedex || [];
 
   useEffect(() => {
     const fetchPokemon = async (pokemon: string) => {

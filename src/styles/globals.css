@@ -103,3 +103,7 @@
 .pokemon-card:hover::before {
   opacity: 1;
 }
+
+.degrade {
+  background-image: linear-gradient(to top, #0c0a09, transparent);
+}

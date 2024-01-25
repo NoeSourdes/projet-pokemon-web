@@ -1,4 +1,6 @@
-import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import {
   Sheet,
   SheetContent,
@@ -7,14 +9,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { RiMenu4Fill } from "react-icons/ri";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Progress } from "@/components/ui/progress";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { CgPokemon } from "react-icons/cg";
-import { signOut } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { RiMenu4Fill } from "react-icons/ri";
 
 interface Props {
   loading: boolean;
@@ -44,13 +43,13 @@ export const ComponentSheet = ({ loading, data, session }: Props) => {
                     <>
                       {data && (
                         <>
-                          <Button>Level {data.user.level}</Button>
+                          <Button>Level {data?.user?.level}</Button>
                           <div className="flex items-center py-2 px-3 bg-secondary rounded-full gap-2">
                             <Progress
-                              value={data.user.progress}
+                              value={data?.user?.progress}
                               className="w-[70px] max-sm:w-[40px] h-2 bg-black"
                             />
-                            <p className="text-sm">{data.user.progress} %</p>
+                            <p className="text-sm">{data?.user?.progress} %</p>
                           </div>
                         </>
                       )}
