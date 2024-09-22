@@ -161,8 +161,7 @@ export default function Page() {
                 .map((pokemon: any) => (
                   <div
                     key={pokemon.id}
-                    className="relative text-center border rounded-[10px] h-[320px] min-w-[320px] max-lg:
-               flex justify-center items-center flex-col space-y-2"
+                    className="relative text-center border rounded-[10px] h-[320px] min-w-[320px] max-lg:flex justify-center items-center flex-col space-y-2"
                   >
                     <img
                       src={pokemon.image}
